@@ -7,5 +7,12 @@ heading {
 }
 
 .logo img {
-  width: 30%;
+  width: 50%;
+}
+
+h1 {
+  box-sizing: border-box;
+  font-family: "Libertinus Serif", serif;
+  font-weight: 400;
+  padding: 0% 20%;
 }
