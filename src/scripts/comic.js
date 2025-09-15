@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sections.forEach((section, index) => {
         // 根據容器滾動進度 (self.progress) 來依次顯示每個 section
         const progress = self.progress;
-
+        console.log(progress);
         // 當進度達到特定條件時顯示對應的 section，並設置固定位置
         if (progress >= (index + 1) * 0.1) {
           section.style.opacity = 1; // 設置該 section 的透明度為 1

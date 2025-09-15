@@ -1,0 +1,287 @@
+---
+import Layout from '../layouts/Layout.astro';
+import "../css/newspaper.css";
+---
+
+<Layout>
+<div class="newspaper">
+    <header class="newspaper-header">
+        <div class="date-weather">
+            <span class="date" id="current-date">Loading...</span>
+            <span class="weather">Sunny 25°C</span>
+        </div>
+        <h1 class="newspaper-title">The Boba News</h1>
+        <div class="subtitle">YOUR DAILY BUBBLE TEA NEWS</div>
+        <div class="edition-price">
+            <span class="edition">Issue No. 1234</span>
+            <span class="price">NT$ 15</span>
+        </div>
+
+    </header>
+
+    <main class="newspaper-content">
+        <section class="headlines">
+            <article class="main-article">
+                <h2 class="headline-main">Taiwan's Bubble Tea Culture: A Sweet Habit with Hidden Costs</h2>
+                <p class="byline">Health Reporter: Sarah Liu</p>
+                <div class="article-meta">
+                    <span class="location">Taipei</span>
+                    <span class="time">10:30 AM</span>
+                </div>
+                <p class="lead">Bubble tea has evolved from a Taiwanese street snack into a global beverage icon. With colorful toppings and creamy textures, it now defines a new category of drink that bridges tradition and trend. While boba spreads worldwide, nowhere is its presence as dominant as in Taiwan, where it was invented...</p>
+                <p>This sugary beverage is deeply woven into daily routines, youth culture, and social rituals. However, beneath the sweet exterior lies a growing health concern that Taiwan's government and health experts are beginning to address with unprecedented measures.</p>
+            </article>
+
+            <aside class="sidebar-articles">
+                <article class="side-article">
+                    <h3>The Global Rise of Boba</h3>
+                    <p class="byline">International Desk</p>
+                    <p>From New York to London, bubble tea shops are becoming as common as coffee chains. The global bubble tea market is expected to reach $4.3 billion by 2025, with Taiwan remaining the cultural epicenter of this sweet revolution...</p>
+                </article>
+
+                <article class="side-article">
+                    <h3>94% of Young Adults Drink Boba</h3>
+                    <p class="byline">Statistics Bureau</p>
+                    <p>Recent surveys show that 94% of Taiwanese aged 20-29 have consumed bubble tea in the past three months, with over 40% drinking sweet beverages three times weekly or more...</p>
+                </article>
+            </aside>
+        </section>
+
+        <section class="middle-section">
+            <article class="feature-article">
+                <h3>A Nation of Boba Lovers: Consumption Habits and Demographics</h3>
+                <p class="byline">Health & Society - Reporter Chen, Feature Story</p>
+                <p>In Taiwan, over 1 billion cups of hand-shaken drinks are sold each year, with young adults aged 20–29 being the most avid consumers. More than 40% of people drink sweet beverages three times a week or more. The drink is no longer a treat but a daily ritual, deeply embedded in Taiwan's social fabric and youth culture.</p>
+            </article>
+
+            <div class="ads-section">
+                <div class="classified-ad">
+                    <h4>Health Alert</h4>
+                    <div class="ad-item">
+                        <strong>Warning:</strong> Excessive sugar intake linked to diabetes and obesity
+                    </div>
+                    <div class="ad-item">
+                        <strong>Tip:</strong> Choose half-sugar or zero-sugar options when available
+                    </div>
+                    <div class="ad-item">
+                        <strong>Fact:</strong> One large boba tea can contain 50+ grams of sugar
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bottom-section">
+            <div class="columns">
+                <article class="column">
+                    <h4>The Physiological Toll</h4>
+                    <h5>Hidden Health Risks</h5>
+                    <p>Sugary beverages like boba spike blood sugar and insulin, increasing the risk of Type 2 diabetes, fatty liver disease, obesity, metabolic syndrome, cardiovascular conditions, and dental decay...</p>
+                </article>
+
+                <article class="column">
+                    <h4>Government Response</h4>
+                    <h5>World-First Sugar Labeling</h5>
+                    <p>Taiwan became the first country to mandate sugar content labeling on drink menus. Public education campaigns and potential sugar tax discussions show 73.8% public support...</p>
+                </article>
+
+                <article class="column">
+                    <h4>Cultural Balance</h4>
+                    <h5>Tradition vs. Health</h5>
+                    <p>Despite health risks, bubble tea remains a symbol of joy, youth, and Taiwanese identity. The challenge is moderating consumption while preserving cultural pride...</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="extended-section">
+            <div class="columns">
+                <article class="column">
+                    <h4>Health Consequences</h4>
+                    <h5>Metabolic Syndrome Rising</h5>
+                    <p>Taiwan's diabetes rate has increased 30% in the past decade, correlating with increased sugary drink consumption. One large boba tea contains equivalent sugar of 3-4 cans of soda...</p>
+
+                    <h5>Dental Health Crisis</h5>
+                    <p>Dentists report a surge in cavities and tooth decay among young adults who regularly consume bubble tea. The combination of sugar and chewy tapioca creates ideal conditions for bacteria...</p>
+
+                    <h5>Weight Gain Epidemic</h5>
+                    <p>Liquid calories don't provide satiety signals, leading to overconsumption. Regular boba drinkers consume an average of 300-500 extra calories daily without feeling full...</p>
+                </article>
+
+                <article class="column">
+                    <h4>Industry Response</h4>
+                    <h5>Healthier Menu Options</h5>
+                    <p>Major bubble tea chains now offer fruit-based teas without added sugar, low-calorie sweeteners, and smaller portion sizes to address health concerns while maintaining market share...</p>
+
+                    <h5>Sugar Reduction Technology</h5>
+                    <p>Food scientists are developing natural sugar substitutes that maintain boba's characteristic taste while reducing caloric content by up to 70%...</p>
+
+                    <h5>Transparency Initiatives</h5>
+                    <p>Leading brands voluntarily display detailed nutritional information, including sugar content, calories, and ingredient lists, even before government mandates...</p>
+                </article>
+
+                <article class="column">
+                    <h4>Social Behavior Shifts</h4>
+                    <h5>Conscious Consumption</h5>
+                    <p>Young consumers increasingly request half-sugar or zero-sugar options, showing growing health awareness without abandoning the cultural ritual entirely...</p>
+
+                    <h5>Educational Campaigns</h5>
+                    <p>Schools incorporate sugar literacy into health education, teaching students to read nutritional labels and understand the long-term impacts of dietary choices...</p>
+
+                    <h5>Peer Influence Changes</h5>
+                    <p>Social media influencers and celebrities promote moderation, making it trendy to choose healthier alternatives while still enjoying occasional treats...</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="extended-section">
+            <article class="feature-article-extended">
+                <h3>In-Depth Analysis: The Sweet Science Behind Taiwan's Boba Addiction</h3>
+                <p class="byline">Health Science - Reporter Wang, In-Depth Report</p>
+                <p>Excess liquid sugar doesn't trigger satiety the same way solid food does, making it dangerously easy to overconsume. This leads to long-term weight gain, insulin resistance, and systemic inflammation. When Taiwanese consume over 1 billion cups annually, the cumulative health impact becomes a national concern...</p>
+                <p>Individual behavior shifts are emerging as more consumers choose half-sugar or zero-sugar drinks. Health-conscious menus featuring fruit teas with no added sugar are gaining popularity. However, the cultural significance of bubble tea as a social bonding ritual makes complete elimination unrealistic...</p>
+                <p>The government's mandatory sugar labeling represents a global first in beverage regulation. Public education campaigns emphasize the risks of sugary drinks while respecting Taiwan's cultural pride in this homegrown innovation. The goal isn't to eliminate boba culture but to transform it into a more health-conscious tradition...</p>
+            </article>
+
+            <!-- ========== INTERACTIVE CHART SECTION ========== -->
+            <div class="chart-section">
+                <h3>Taiwan's Sugar Consumption Trends: The Boba Effect</h3>
+                <div class="chart-container">
+                    <canvas id="sugarChart"></canvas>
+                </div>
+                <p class="chart-source">Data Source: Taiwan Health Promotion Administration | Analysis by: BobaNews Health Team</p>
+                <div class="scroll-hint">📊 Scroll to reveal data trends</div>
+            </div>
+            <!-- =============================================== -->
+        </section>
+
+        <section class="extended-section">
+            <div class="columns">
+                <article class="column">
+                    <h4>Culture & Arts</h4>
+                    <h5>International Music Festival Opens</h5>
+                    <p>The week-long International Music Festival opened grandly at the National Concert Hall, with musicians from around the world bringing spectacular performances...</p>
+
+                    <h5>Digital Art Exhibition Breaks Records</h5>
+                    <p>Digital art exhibitions combining AI and VR technologies attract large crowds, breaking traditional boundaries of art appreciation...</p>
+
+                    <h5>Street Art Legalization Progress</h5>
+                    <p>The city government is planning specific areas for street artists to create, turning the city into a giant art canvas...</p>
+                </article>
+
+                <article class="column">
+                    <h4>Health & Medicine</h4>
+                    <h5>Precision Medicine Breakthrough</h5>
+                    <p>Genetic testing technology is becoming increasingly mature, allowing doctors to create personalized treatment plans based on patients' genetic characteristics...</p>
+
+                    <h5>Telemedicine Widespread Adoption</h5>
+                    <p>5G technology makes telemedicine more widespread, allowing residents in remote areas to enjoy quality medical services...</p>
+
+                    <h5>Mental Health Awareness Rising</h5>
+                    <p>Society's attention to mental health issues continues to increase, with companies beginning to value employee psychological well-being...</p>
+                </article>
+
+                <article class="column">
+                    <h4>International Perspective</h4>
+                    <h5>Space Exploration New Milestone</h5>
+                    <p>Private space companies successfully launched manned missions, officially ushering in the era of commercial space travel...</p>
+
+                    <h5>International Cooperation in Pandemic Response</h5>
+                    <p>Countries are sharing vaccine technology and medical resources, demonstrating humanity's solidarity when facing global challenges...</p>
+
+                    <h5>Digital Diplomacy New Trends</h5>
+                    <p>Governments are actively using social media and digital platforms for diplomatic communication, creating new models of diplomacy...</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="extended-section">
+            <div class="multi-topic-grid">
+                <article class="topic-item">
+                    <h5>Boba Statistics</h5>
+                    <p>Taiwan has over 15,000 bubble tea shops - more per capita than any country worldwide. Taipei alone has 3,000 outlets...</p>
+                </article>
+
+                <article class="topic-item">
+                    <h5>Global Expansion</h5>
+                    <p>Taiwanese boba brands operate in 40+ countries, with international revenue growing 25% annually despite health concerns...</p>
+                </article>
+
+                <article class="topic-item">
+                    <h5>Health Innovation</h5>
+                    <p>New sugar-free tapioca pearls and natural fruit sweeteners aim to preserve taste while reducing health risks...</p>
+                </article>
+
+                <article class="topic-item">
+                    <h5>Youth Culture Impact</h5>
+                    <p>90% of Taiwanese university students visit boba shops weekly, making it central to social interactions and study habits...</p>
+                </article>
+
+                <article class="topic-item">
+                    <h5>Economic Significance</h5>
+                    <p>The bubble tea industry generates NT$70 billion annually, employing over 200,000 people across Taiwan...</p>
+                </article>
+
+                <article class="topic-item">
+                    <h5>Regulatory Future</h5>
+                    <p>Proposed sugar tax could increase boba prices 15-30%, potentially reshaping consumption patterns and industry practices...</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="extended-section final-section">
+            <article class="opinion-piece">
+                <h3>Editorial: Balancing Cultural Pride with Public Health</h3>
+                <p class="byline">Editor-in-Chief: David Chen</p>
+                <p>Taiwan's bubble tea culture represents both our greatest culinary export and our most pressing health challenge. As a nation that gifted the world this beloved beverage, we have a responsibility to lead in finding solutions that preserve cultural heritage while protecting public health...</p>
+                <p>The path forward isn't prohibition but innovation - developing healthier formulations, promoting moderation, and educating consumers. Taiwan can demonstrate that cultural traditions can evolve responsibly without losing their essence. Our sweet legacy should be one of joy, not disease.</p>
+            </article>
+
+            <div class="final-notices">
+                <div class="subscription-info">
+                    <h4>Subscription Information</h4>
+                    <p>Annual subscription: NT$ 3,600</p>
+                    <p>Semi-annual subscription: NT$ 2,000</p>
+                    <p>Monthly subscription: NT$ 360</p>
+                    <p>Digital edition add-on: NT$ 120/month</p>
+                </div>
+
+                <div class="contact-info">
+                    <h4>Contact Us</h4>
+                    <p>News Hotline: (02) 1234-5678</p>
+                    <p>Advertising: (02) 1234-5679</p>
+                    <p>Subscriptions: (02) 1234-5680</p>
+                    <p>Email: news@bobanews.com</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="newspaper-footer">
+        <div class="footer-info">
+            <span>Publisher:</span>
+            <span>Editor:</span>
+            <span>Printer:</span>
+            <span>Customer Service:</span>
+        </div>
+    </footer>
+</div>
+
+<script is:inline>
+    // Set current date
+    function updateCurrentDate() {
+        const now = new Date();
+        const options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        };
+        const dateString = now.toLocaleDateString('en-US', options);
+        document.getElementById('current-date').textContent = dateString;
+    }
+
+    // Update date when page loads
+    updateCurrentDate();
+</script>
+
+<script src="../scripts/interactive-chart.js"></script>
+<Layout/>
