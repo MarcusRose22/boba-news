@@ -1,30 +1,82 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", function () {
+  // Get DOM elements
+  const topComponent = document.getElementById("newspaperHeadlines");
+  const section = document.getElementById("section");
+  const scrollTopSpan = document.getElementById("scrollTop");
+  const scrollPercentSpan = document.getElementById("scrollPercent");
+  const windowHeightSpan = document.getElementById("windowHeight");
+  const currentImageSpan = document.getElementById("currentImage");
+  const progressFill = document.getElementById("progressFill");
 
-document.addEventListener("DOMContentLoaded", () => {
-  ScrollTrigger.create({
-    trigger: ".container",
-    start: "top top",
-    end: "bottom bottom",
-    pin: "#comicSection",
-    scrub: true,
-    onUpdate: (self) => {
-      const sections = document.querySelectorAll(".section");
+  // Get all images
+  const images = document.querySelectorAll(".image");
 
-      sections.forEach((section, index) => {
-        // 根據容器滾動進度 (self.progress) 來依次顯示每個 section
-        const progress = self.progress;
-        console.log(progress);
-        // 當進度達到特定條件時顯示對應的 section，並設置固定位置
-        if (progress >= (index + 1) * 0.1) {
-          section.style.opacity = 1; // 設置該 section 的透明度為 1
-          section.classList.add("visible"); // 顯示該 section
-        } else {
-          section.style.opacity = 0; // 設置該 section 的透明度為 1
-          section.classList.remove("visible"); // 隱藏該 section
-        }
-      });
-    },
-  });
+  // Get all story-text
+  const storyTexts = document.querySelectorAll(".story-text");
+
+  // Function to update scroll information
+  function updateScrollInfo() {
+    // Get scroll position relative to window
+    const scrollTop = window.pageYOffset - topComponent.offsetHeight;
+
+    // Get window height
+    const windowHeight = window.innerHeight;
+
+    // Get dimensions
+    const sectionHeight = section.offsetHeight;
+    const maxScroll = sectionHeight - windowHeight;
+
+    // Calculate scroll percentage
+    const scrollPercent =
+      maxScroll > 0 ? ((scrollTop / maxScroll) * 100).toFixed(2) : 0;
+
+    // Update display
+    progressFill.style.width = scrollPercent + "%";
+
+    // Determine which image should be visible based on scroll position
+    const imageIndex = Math.floor(
+      (scrollTop / maxScroll) * (images.length + 1)
+    ); // 增加 +1 來確保有更多的顯示區間
+    const currentImageIndex =
+      Math.min(Math.max(imageIndex, 0), images.length) - 1;
+
+    // Log the image index to the console
+    console.log(currentImageIndex);
+
+    // Show images progressively - appear when scrolling down, disappear when scrolling up
+    images.forEach((img, index) => {
+      if (index <= currentImageIndex) {
+        img.classList.add("visible");
+      } else {
+        img.classList.remove("visible");
+      }
+    });
+
+    // Show story-text progressively - appear when scrolling down, disappear when scrolling up
+    storyTexts.forEach((story, index) => {
+      if (index === currentImageIndex) {
+        story.classList.add("visible");
+      } else {
+        story.classList.remove("visible");
+      }
+    });
+
+    // Update current image display
+    // Log scroll data to console (optional)
+    console.log({
+      scrollTop: scrollTop,
+      scrollPercent: scrollPercent + "%",
+      currentImage: currentImageIndex + 1,
+      maxScroll: maxScroll,
+    });
+  }
+
+  // Listen for scroll events on the window
+  window.addEventListener("scroll", updateScrollInfo);
+
+  // Listen for window resize to update dimensions
+  window.addEventListener("resize", updateScrollInfo);
+
+  // Initial update
+  updateScrollInfo();
 });

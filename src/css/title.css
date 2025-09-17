@@ -3,7 +3,6 @@
   text-align: center;
   border-bottom: 4px double #333;
   padding-bottom: 20px;
-  margin-bottom: 25px;
 }
 
 .date-weather {
@@ -47,10 +46,9 @@
 
 /* Headlines Section */
 .headlines {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
   gap: 1em;
-  margin-bottom: 2em;
+
+  height: 60vh;
   padding-bottom: 1.5em;
   border-bottom: 2px solid #ddd;
   letter-spacing: 1px;
