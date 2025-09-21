@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Get DOM elements
   const topComponent = document.getElementById("newspaperHeadlines");
-  const section = document.getElementById("section");
+  const section = document.getElementById("comicSection");
   const scrollTopSpan = document.getElementById("scrollTop");
   const scrollPercentSpan = document.getElementById("scrollPercent");
   const windowHeightSpan = document.getElementById("windowHeight");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const progressFill = document.getElementById("progressFill");
 
   // Get all images
-  const images = document.querySelectorAll(".image");
+  const images = document.querySelectorAll(".comic-image");
 
   // Get all story-text
   const storyTexts = document.querySelectorAll(".story-text");
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Determine which image should be visible based on scroll position
     const imageIndex = Math.floor(
-      (scrollTop / maxScroll) * (images.length + 1)
+      (scrollTop / maxScroll) * images.length - 0.5
     ); // 增加 +1 來確保有更多的顯示區間
     const currentImageIndex =
       Math.min(Math.max(imageIndex, 0), images.length) - 1;

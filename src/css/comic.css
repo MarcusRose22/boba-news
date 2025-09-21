@@ -1,29 +1,33 @@
-.section {
+.comuc-section {
   width: 100%;
   height: 10000px;
-  padding-bottom: 20em;
+  padding-bottom: 5em;
+  gap: 2em;
+  border-bottom: 2px solid #ddd;
 }
 
-.image {
-  width: 50%;
+.comic-image {
+  width: 100%;
   position: sticky;
-  top: 14%;
+  top: 0%;
   left: 1%;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
-.image.visible {
+.comic-image.visible {
   opacity: 1;
 }
 
 .story-text {
-  width: 40%;
-  position: fixed;
-  top: 14%;
-  right: 5%;
+  width: 100%;
+  /* height: 4.3%; */
+  position: sticky;
+  top: 0%;
+  left: 66%;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  line-height: 2em;
 }
 
 .story-text.visible {

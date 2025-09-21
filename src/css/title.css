@@ -3,6 +3,7 @@
   text-align: center;
   border-bottom: 4px double #333;
   padding-bottom: 20px;
+  font-family: "Geist", sans-serif;
 }
 
 .date-weather {
@@ -50,14 +51,14 @@
 
   height: 60vh;
   padding-bottom: 1.5em;
-  border-bottom: 2px solid #ddd;
+
   letter-spacing: 1px;
 }
 
 /* Main Article */
 .main-article {
   padding-right: 20px;
-  border-right: 1px solid #ddd;
+  border-bottom: 2px solid #ddd;
 }
 
 .headline-main {
@@ -106,8 +107,4 @@
   font-size: 13px;
   text-align: justify;
   margin-bottom: 6px;
-}
-
-p {
-  font-size: 1.5em;
 }

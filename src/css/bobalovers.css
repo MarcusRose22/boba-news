@@ -1,0 +1,15 @@
+.boba-lovers {
+  width: 100%;
+}
+
+.boba-lovers section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: column;
+  gap: 2em;
+  margin-top: 5em;
+}
+
+img {
+  width: 100%;
+}

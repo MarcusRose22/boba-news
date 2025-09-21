@@ -1,8 +1,28 @@
 @import "./title.css";
 @import "./comic.css";
+@import "./bobalovers.css";
+@import "./concern.css";
+@import "./sugar.css";
+
 body {
   background-color: #f8f7ef;
-  font-family: "Comic Neue", cursive;
-  border: 3px solid #333;
-  overflow-y: scroll;
+  /* font-family: "Comic Neue", cursive; */
+  /* font-family: "Geist", sans-serif; */
+  font-family: "Crimson Text", serif;
+  /* border: 3px double #333; */
+  overflow-x: hidden;
+  padding: 1em;
+  box-sizing: border-box;
+  margin: 15em;
+  margin-top: 2em;
+}
+
+p {
+  font-size: 1.5rem;
+  color: #333;
+  line-height: 1.67;
+}
+
+h1 {
+  margin-top: 0;
 }
