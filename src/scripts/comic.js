@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       Math.min(Math.max(imageIndex, 0), images.length) - 1;
 
     // Log the image index to the console
-    console.log(currentImageIndex);
+    // console.log(currentImageIndex);
 
     // Show images progressively - appear when scrolling down, disappear when scrolling up
     images.forEach((img, index) => {
@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Update current image display
     // Log scroll data to console (optional)
-    console.log({
-      scrollTop: scrollTop,
-      scrollPercent: scrollPercent + "%",
-      currentImage: currentImageIndex + 1,
-      maxScroll: maxScroll,
-    });
+    // console.log({
+    //   scrollTop: scrollTop,
+    //   scrollPercent: scrollPercent + "%",
+    //   currentImage: currentImageIndex + 1,
+    //   maxScroll: maxScroll,
+    // });
   }
 
   // Listen for scroll events on the window
