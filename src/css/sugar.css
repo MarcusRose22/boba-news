@@ -1,6 +1,6 @@
 .sugar-section {
   width: 100%;
-  height: 20600px;
+  height: 14850px;
   font-family: "Geist", sans-serif;
 }
 .sugar {
@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   /* background-color: blue; */
-  width: 300000px;
+  width: 120000px;
   height: 100vh;
   z-index: -999;
   opacity: 0;
@@ -44,23 +44,27 @@
 
 .time-slot {
   position: absolute;
-  bottom: 0;
-  transform: translateX(900px);
+  bottom: 1%;
+  transform: translateX(700px);
   border-top: solid 0.3rem black;
-  padding-top: 3rem;
+  padding-top: 2.4rem;
 }
 
 .time-slot span {
   font-size: 5rem;
-  margin-right: 80rem;
+  margin-right: 50rem;
 }
 
 .bob-walk img {
   position: absolute;
+  top: 19%;
   left: 30vw;
   width: 40rem;
   opacity: 0;
-  transition: opacity 0.1s ease; /* Adjust transition time for smoothness */
+}
+
+.bob-walk .look {
+  top: 17%;
 }
 
 .bob-walk img.visible {

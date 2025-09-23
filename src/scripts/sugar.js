@@ -24,11 +24,11 @@ window.addEventListener("scroll", function () {
   sugar.style.opacity = 1;
 
   /*橫移 sugar*/
-  const transformX = -(scrollY - triggerHeight) * 0.69 + 900; // 根據滾動進度來平移 .time-slot
+  const transformX = -(scrollY - triggerHeight) * 0.65 + 700; // 根據滾動進度來平移 .time-slot
   timeSlot.style.transform = `translateX(${transformX}px)`;
 
   /*Bob走路*/
-  const imgAvg = sectionWidth / 36; //平均多少px要出現一張
+  const imgAvg = sectionWidth / 60; //平均多少px要出現一張
   const visibleIndex = Math.floor((scrollY - triggerHeight) / imgAvg); // 根據滾動進度計算顯示的圖片索引
   images.forEach((img) => img.classList.remove("visible")); // 隱藏所有圖片
   if (visibleIndex < images.length) {
@@ -36,10 +36,11 @@ window.addEventListener("scroll", function () {
   }
 
   /*方糖*/
-  const cubeIndex = Math.floor(visibleIndex / 6); // 每 X 張 bob-walk img 顯示 1 張 cube-img
+  const cubeIndex = Math.floor(visibleIndex / 10); // 每 X 張 bob-walk img 顯示 1 張 cube-img
   cubeImages.forEach((cubeImg) => cubeImg.classList.remove("visible")); // 隱藏所有 cube-images
   sugarAmount.forEach((txt) => txt.classList.remove("visible"));
-  if (cubeIndex >= 0 && visibleIndex % 6 === 5 && visibleIndex != 0) {
+  console.log(cubeIndex);
+  if (cubeIndex >= 0 && visibleIndex % 10 === 9 && visibleIndex != 0) {
     cubeImages[cubeIndex].classList.add("visible");
     sugarAmount[cubeIndex].classList.add("visible");
   }
