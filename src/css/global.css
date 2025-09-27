@@ -1,7 +1,7 @@
 @import "./title.css";
 @import "./comic.css";
-@import "./bobalovers.css";
-@import "./concern.css";
+@import "./article.css";
+@import "./chapter.css";
 @import "./sugar.css";
 
 body {
@@ -11,10 +11,10 @@ body {
   font-family: "Crimson Text", serif;
   /* border: 3px double #333; */
   overflow-x: hidden;
-  padding: 1em;
+
   box-sizing: border-box;
-  margin: 15rem;
-  margin-top: 2em;
+  margin: 15%;
+  margin-top: 2%;
 }
 
 p {

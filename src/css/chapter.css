@@ -1,19 +1,17 @@
-.concern {
+.chapter-intro {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.concern-title {
-  position: sticky;
-  top: 0;
+.chapter-title {
   background-color: #f8f7ef;
 }
 
-.concern-title p {
+.chapter-title p {
   margin-bottom: 0;
 }
 
-.concern-description {
+.chapter-description {
   margin: 10% 0%;
   align-self: center;
   width: 80%;
