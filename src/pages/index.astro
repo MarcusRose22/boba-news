@@ -5,6 +5,7 @@ import Comic from "../components/Comic.astro";
 import BobaLovers from "../components/BobaLovers.astro";
 import Concern from "../components/Concern.astro";
 import Sugar from "../components/Sugar.astro";
+import ChapterList from "../components/ChapterList.astro";
 import "../css/global.css";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -12,6 +13,7 @@ import "../css/global.css";
 ---
 
 <Layout>
+  <ChapterList />
   <Title />
   <Comic />
   <BobaLovers />
@@ -22,6 +24,7 @@ import "../css/global.css";
   <BobaLovers />
 </Layout>
 
+<script src="../scripts/header.js"></script>
 <script src="../scripts/animation.js"></script>
 <script src="../scripts/comic.js"></script>
 <script src="../scripts/sugar.js"></script>

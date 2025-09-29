@@ -1,0 +1,23 @@
+header {
+  position: fixed;
+  left: 2%;
+  top: 40%;
+  transition: all 0.5s;
+}
+
+nav p {
+  font-size: 1rem;
+  transition: all 0.5s;
+}
+
+nav p.now {
+  transform: translateX(10px);
+  font-weight: bold;
+  transition: all 0.5s;
+}
+
+nav p:hover {
+  cursor: pointer;
+  transform: translateX(10px);
+  transition: all 0.5s;
+}

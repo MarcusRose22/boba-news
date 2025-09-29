@@ -12,7 +12,7 @@ window.addEventListener("scroll", function () {
   const sectionWidth = timeSlot.clientWidth;
 
   const sectionTop = sugarSection.getBoundingClientRect().top + window.scrollY;
-  console.log(sectionTop);
+  // console.log(sectionTop);
 
   /*初始化*/
   if (images.length === 0) return; //確保圖片元素存在
