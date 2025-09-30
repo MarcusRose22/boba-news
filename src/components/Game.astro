@@ -1,0 +1,284 @@
+<div class="game-section" id="gameSection">
+  <!-- Container for the p5.js sketch -->
+  <div id="container">
+    <div id="menu-container">
+      <p>Base:</p>
+      <select id="baseSelect">
+        <option>Green Tea</option>
+        <option>Black Tea</option>
+      </select>
+
+      <p>Milk:</p>
+      <input type="checkbox" id="milkCheckbox" /> Add Milk
+
+      <p>Boba:</p>
+      <input type="checkbox" id="bobaCheckbox" /> Add Boba
+
+      <p>Sugar:</p>
+      <select id="sugarSelect">
+        <option>0%</option>
+        <option>30%</option>
+        <option>50%</option>
+        <option>70%</option>
+        <option>100%</option>
+      </select>
+    </div>
+    <div class="make-drinks">
+      <img style="opacity: 1;" src="img/make-drinks/teacup.png" />
+      <img id="matchalatte" src="img/make-drinks/matchalatte.png" />
+      <img id="bobo" src="img/make-drinks/bobo.png" />
+    </div>
+    <div>
+      <div id="sketch-container"></div>
+      <div id="sugarDisplay">0</div>
+    </div>
+    <!-- This is where the p5.js canvas will be rendered -->
+  </div>
+</div>
+
+<style>
+  .game-section {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%); /* 讓子元素完全居中 */
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10rem;
+  }
+
+  .make-drinks {
+    text-align: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .make-drinks img {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 讓子元素完全居中 */
+    width: 30%;
+    position: absolute;
+    transition: opacity 0.3s;
+    opacity: 0;
+  }
+
+  /* Positioning the entire canvas and UI elements */
+  #container {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+  }
+
+  /* Style for the menu */
+  #menu-container {
+    z-index: 1;
+    /* background: rgba(255, 255, 255, 0.8); */
+    border-radius: 10px;
+    width: 30%;
+  }
+
+  #sugarDisplay {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+</style>
+
+<!-- Include p5.js library -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"
+></script>
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"
+></script>
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.js"
+></script>
+
+<!-- Your custom p5.js code -->
+<script is:inline>
+  // Matter.js module aliases
+  const { Engine, World, Bodies, Body } = Matter;
+
+  let engine, world;
+  let ground, leftWall, rightWall;
+  let button;
+  let sugarCubes = [];
+  let totalSugar = 0;
+
+  function setup() {
+    // Create a canvas within the "sketch-container" div
+    createCanvas(300, 400, WEBGL).parent("sketch-container");
+
+    // Matter.js setup
+    engine = Engine.create();
+    world = engine.world;
+
+    // Ground and walls
+    ground = Bodies.rectangle(300, 390, 600, 20, { isStatic: true });
+    World.add(world, ground);
+    leftWall = Bodies.rectangle(0, 200, 20, 400, { isStatic: true });
+    rightWall = Bodies.rectangle(300, 200, 20, 400, { isStatic: true });
+    World.add(world, leftWall);
+    World.add(world, rightWall);
+
+    // Setup menu elements from HTML
+    document
+      .getElementById("baseSelect")
+      .addEventListener("change", updateSugar);
+    document
+      .getElementById("milkCheckbox")
+      .addEventListener("change", updateSugar);
+    document
+      .getElementById("bobaCheckbox")
+      .addEventListener("change", updateSugar);
+    document
+      .getElementById("sugarSelect")
+      .addEventListener("change", updateSugar);
+
+    // Initial sugar setup
+    updateSugar(); // initialize the menu
+  }
+
+  function draw() {
+    background(0, 0, 0, 0);
+
+    ambientLight(300);
+    directionalLight(255, 255, 255, -1, -1, -1);
+
+    Engine.update(engine);
+
+    // Draw ground
+    push();
+    translate(0, height / 2 - 10, 0);
+    rotateX(HALF_PI);
+    fill(150);
+    noStroke();
+    rectMode(CENTER);
+    rect(0, 0, 300, 10);
+    pop();
+
+    // Draw walls
+    push();
+    translate(-width / 2 + 10, 0, 0);
+    fill(0, 0, 0, 0);
+    box(0, 0, 0);
+    pop();
+
+    push();
+    translate(width / 2 - 10, 0, 0);
+    fill(0, 0, 0, 0);
+    box(0, 0, 0);
+    pop();
+
+    // Draw sugar cubes
+    for (let cube of sugarCubes) {
+      push();
+      translate(
+        cube.position.x - width / 2,
+        cube.position.y - height / 2 - 0,
+        0
+      );
+      rotateX(cube.angle);
+      rotateZ(cube.angle);
+      fill(255);
+      box(40);
+      pop();
+    }
+  }
+
+  // --- Update sugar cubes based on menu ---
+  function updateSugar() {
+    // Get the selections from the menu
+    let base = document.getElementById("baseSelect").value;
+    let milk = document.getElementById("milkCheckbox").checked;
+    let boba = document.getElementById("bobaCheckbox").checked;
+    let sugar = document.getElementById("sugarSelect").value;
+
+    // Calculate the new total sugar
+    let newTotalSugar = 0;
+    if (milk) newTotalSugar += 3;
+    if (boba) newTotalSugar += 5;
+    switch (sugar) {
+      case "0%":
+        newTotalSugar += 0;
+        break;
+      case "30%":
+        newTotalSugar += 5;
+        break;
+      case "50%":
+        newTotalSugar += 7;
+        break;
+      case "70%":
+        newTotalSugar += 10;
+        break;
+      case "100%":
+        newTotalSugar += 30;
+        break;
+    }
+
+    // If total sugar changes, add/remove cubes
+    if (newTotalSugar > totalSugar) {
+      let cubesToAdd = newTotalSugar - totalSugar;
+      for (let i = 0; i < cubesToAdd; i++) {
+        let sugarCube = Bodies.rectangle(
+          random(50, width - 50),
+          -50 - i * 50,
+          40,
+          40,
+          { restitution: 0.9 }
+        );
+        World.add(world, sugarCube);
+        sugarCubes.push(sugarCube);
+      }
+    } else if (newTotalSugar < totalSugar) {
+      let cubesToRemove = totalSugar - newTotalSugar;
+      for (let i = 0; i < cubesToRemove; i++) {
+        let cubeToRemove = sugarCubes.pop();
+        World.remove(world, cubeToRemove);
+      }
+    }
+
+    // Update total sugar
+    totalSugar = newTotalSugar;
+
+    // Display the total sugar cubes
+    document.getElementById("sugarDisplay").innerHTML =
+      `Total sugar cubes: ${totalSugar}`;
+  }
+</script>
+
+<!-- make-drinks -->
+<script is:inline>
+  // Get references to the necessary DOM elements
+  const baseSelect = document.getElementById("baseSelect");
+  const milkCheckbox = document.getElementById("milkCheckbox");
+  const bobaCheckbox = document.getElementById("bobaCheckbox");
+  const matchalatte = document.getElementById("matchalatte");
+  const boba = document.getElementById("bobo");
+
+  // Function to update opacity based on selection
+  function updateMatchaOpacity() {
+    // If 'Green Tea' is selected and 'Add Milk' is checked
+    if (baseSelect.value === "Green Tea" && milkCheckbox.checked) {
+      matchalatte.style.opacity = 1; // Set opacity to 1 (visible)
+    } else {
+      matchalatte.style.opacity = 0; // Set opacity to 0 (invisible)
+    }
+
+    if (bobaCheckbox.checked) {
+      boba.style.opacity = 1; // Set opacity to 1 (visible)
+    } else {
+      boba.style.opacity = 0; // Set opacity to 0 (invisible)
+    }
+  }
+
+  // Add event listeners for changes to the select and checkbox
+  baseSelect.addEventListener("change", updateMatchaOpacity);
+  milkCheckbox.addEventListener("change", updateMatchaOpacity);
+  bobaCheckbox.addEventListener("change", updateMatchaOpacity);
+
+  // Initialize opacity on page load based on current values
+  updateMatchaOpacity();
+</script>

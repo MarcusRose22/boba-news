@@ -12,21 +12,24 @@ window.addEventListener("scroll", function () {
   const header = document.getElementById("header");
   const comicSection = document.getElementById("comicSection");
   const sugarSection = document.getElementById("sugarSection");
+  const gameSection = document.getElementById("gameSection");
   const sugarTop = sugarSection.getBoundingClientRect().top + window.scrollY;
   const sugarBottom = sugarSection.getBoundingClientRect().bottom;
   const comicBottom = comicSection.getBoundingClientRect().bottom;
+  const gameTop = gameSection.getBoundingClientRect().top;
 
   //Specific Area
   if (
     (comicBottom <= 300 && sugarTop - window.scrollY > 10) ||
-    sugarBottom <= 300
+    (sugarBottom <= 300 && gameTop >= 600)
   ) {
     header.style.opacity = 1;
   } else {
     header.style.opacity = 0;
   }
 
-  console.log(comicBottom);
+  console.log(gameTop);
+
   //chap1
   if (chap1Top <= 300) {
     chapterList[0].classList.add("now");
