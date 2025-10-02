@@ -4,6 +4,7 @@
 @import "./chapter.css";
 @import "./sugar.css";
 @import "./header.css";
+@import "./game.css";
 body {
   background-color: #f8f7ef;
   /* font-family: "Comic Neue", cursive; */

@@ -4,6 +4,7 @@
     <div id="menu-container">
       <p>Base:</p>
       <select id="baseSelect">
+        <option value="">Please select a base</option>
         <option>Green Tea</option>
         <option>Black Tea</option>
       </select>
@@ -25,6 +26,10 @@
     </div>
     <div class="make-drinks">
       <img style="opacity: 1;" src="img/make-drinks/teacup.png" />
+      <img id="greentea" src="img/make-drinks/greentea.png" />
+      <img id="blacktea" src="img/make-drinks/blacktea.png" />
+      <img id="milk" src="img/make-drinks/milk.png" />
+      <img id="milktea" src="img/make-drinks/milktea.png" />
       <img id="matchalatte" src="img/make-drinks/matchalatte.png" />
       <img id="bobo" src="img/make-drinks/bobo.png" />
     </div>
@@ -35,54 +40,6 @@
     <!-- This is where the p5.js canvas will be rendered -->
   </div>
 </div>
-
-<style>
-  .game-section {
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%); /* 讓子元素完全居中 */
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10rem;
-  }
-
-  .make-drinks {
-    text-align: center;
-    width: 100%;
-    position: relative;
-  }
-
-  .make-drinks img {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* 讓子元素完全居中 */
-    width: 30%;
-    position: absolute;
-    transition: opacity 0.3s;
-    opacity: 0;
-  }
-
-  /* Positioning the entire canvas and UI elements */
-  #container {
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
-  }
-
-  /* Style for the menu */
-  #menu-container {
-    z-index: 1;
-    /* background: rgba(255, 255, 255, 0.8); */
-    border-radius: 10px;
-    width: 30%;
-  }
-
-  #sugarDisplay {
-    font-size: 2.2rem;
-    text-align: center;
-  }
-</style>
 
 <!-- Include p5.js library -->
 <script is:inline src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"
@@ -255,18 +212,50 @@
   const baseSelect = document.getElementById("baseSelect");
   const milkCheckbox = document.getElementById("milkCheckbox");
   const bobaCheckbox = document.getElementById("bobaCheckbox");
+  const greentea = document.getElementById("greentea");
+  const blacktea = document.getElementById("blacktea");
+  const milk = document.getElementById("milk");
+  const milktea = document.getElementById("milktea");
   const matchalatte = document.getElementById("matchalatte");
   const boba = document.getElementById("bobo");
 
   // Function to update opacity based on selection
-  function updateMatchaOpacity() {
+  function updateDrinksOpacity() {
     // If 'Green Tea' is selected and 'Add Milk' is checked
-    if (baseSelect.value === "Green Tea" && milkCheckbox.checked) {
-      matchalatte.style.opacity = 1; // Set opacity to 1 (visible)
+
+    // milk
+    if (milkCheckbox.checked) {
+      milk.style.opacity = 1;
+    } else {
+      milk.style.opacity = 0; // Set opacity to 0 (invisible)
+    }
+
+    if (milkCheckbox.checked && baseSelect.value === "Green Tea") {
+      matchalatte.style.opacity = 1;
     } else {
       matchalatte.style.opacity = 0; // Set opacity to 0 (invisible)
     }
 
+    if (milkCheckbox.checked && baseSelect.value === "Black Tea") {
+      milktea.style.opacity = 1;
+    } else {
+      milktea.style.opacity = 0; // Set opacity to 0 (invisible)
+    }
+
+    if (baseSelect.value === "Green Tea") {
+      greentea.style.opacity = 1; // Set opacity to 1 (visible)
+    } else {
+      greentea.style.opacity = 0;
+    }
+
+    if (baseSelect.value === "Black Tea") {
+      blacktea.style.opacity = 1; // Set opacity to 1 (visible)
+    } else {
+      // Set opacity to 0 (invisible)
+      blacktea.style.opacity = 0;
+    }
+
+    // boba
     if (bobaCheckbox.checked) {
       boba.style.opacity = 1; // Set opacity to 1 (visible)
     } else {
@@ -275,10 +264,10 @@
   }
 
   // Add event listeners for changes to the select and checkbox
-  baseSelect.addEventListener("change", updateMatchaOpacity);
-  milkCheckbox.addEventListener("change", updateMatchaOpacity);
-  bobaCheckbox.addEventListener("change", updateMatchaOpacity);
+  baseSelect.addEventListener("change", updateDrinksOpacity);
+  milkCheckbox.addEventListener("change", updateDrinksOpacity);
+  bobaCheckbox.addEventListener("change", updateDrinksOpacity);
 
   // Initialize opacity on page load based on current values
-  updateMatchaOpacity();
+  updateDrinksOpacity();
 </script>

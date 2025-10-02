@@ -26,6 +26,15 @@ window.addEventListener("scroll", function () {
   }
   sugar.style.opacity = 1;
 
+  /*左上大標題*/
+  if (scrollY - triggerHeight + 1000 < sectionHeight) {
+    sugarTitle.classList.add("visible");
+  } else if (scrollY - triggerHeight + 1000 > sectionHeight) {
+    sugarTitle.classList.remove("visible");
+  }
+  console.log(scrollY - triggerHeight);
+  console.log(sectionHeight);
+
   /*橫移 sugar*/
   const transformX = -(scrollY - sectionTop) * 0.65 + 700; // 根據滾動進度來平移 .time-slot
   timeSlot.style.transform = `translateX(${transformX}px)`;
@@ -47,13 +56,4 @@ window.addEventListener("scroll", function () {
     cubeImages[cubeIndex].classList.add("visible");
     sugarAmount[cubeIndex].classList.add("visible");
   }
-
-  /*左上大標題*/
-  if (scrollY - triggerHeight < sectionHeight) {
-    sugarTitle.classList.add("visible");
-  } else if (scrollY - triggerHeight > sectionHeight) {
-    sugarTitle.classList.remove("visible");
-  }
-
-  /*左上小標題*/
 });
