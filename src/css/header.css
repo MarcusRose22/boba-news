@@ -1,9 +1,10 @@
 header {
   position: fixed;
   left: 2%;
-  top: 40%;
+  top: 35%;
   transition: all 0.5s;
   opacity: 0;
+  width: 20ch;
 }
 
 nav p {

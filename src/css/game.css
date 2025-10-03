@@ -65,3 +65,12 @@ select:hover,
 select:focus {
   background: #dddddd;
 }
+@media (max-width: 768px) {
+  #container {
+    display: block;
+  }
+
+  #menu-container {
+    display: flex;
+  }
+}
