@@ -33,10 +33,12 @@ window.addEventListener("scroll", function () {
     (sugarBottom <= 300 && gameTop >= 800)
   ) {
     header.style.opacity = 1;
+    header.style.pointerEvents = "auto";
     toTop.style.opacity = 1;
   } else {
     header.style.opacity = 0;
     toTop.style.opacity = 0;
+    header.style.pointerEvents = "none";
   }
 
   if (gameBottom <= 300) {

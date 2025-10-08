@@ -13,10 +13,22 @@
         </select>
 
         <p>Milk:</p>
-        <input type="checkbox" id="milkCheckbox" /> Add Milk
 
-        <p>Boba:</p>
-        <input type="checkbox" id="bobaCheckbox" /> Add Boba
+        <input type="checkbox" id="milkCheckbox" />
+        <span>Add Milk</span>
+
+        <p>Toppings:</p>
+        <input type="checkbox" id="bobaCheckbox" />
+        <span>Boba</span>
+        <br />
+        <input type="checkbox" id="puddingCheckbox" />
+        <span>Pudding</span>
+        <br />
+        <input type="checkbox" id="grassCheckbox" />
+        <span>Grass Jelly</span>
+        <br />
+        <input type="checkbox" id="konjacCheckbox" />
+        <span>Konjac</span>
 
         <p>Sugar:</p>
         <select id="sugarSelect">
@@ -36,6 +48,9 @@
         <img id="milktea" src="img/make-drinks/milktea.png" />
         <img id="matchalatte" src="img/make-drinks/matchalatte.png" />
         <img id="bobo" src="img/make-drinks/bobo.png" />
+        <img id="pudding" src="img/make-drinks/pudding.png" />
+        <img id="grass-jelly" src="img/make-drinks/grass-jelly.png" />
+        <img id="konjac" src="img/make-drinks/konjac.png" />
       </div>
       <div>
         <div id="sketch-container"></div>
@@ -81,17 +96,17 @@
 
   function setup() {
     // Create a canvas within the "sketch-container" div
-    createCanvas(300, 400, WEBGL).parent("sketch-container");
+    createCanvas(300, 500, WEBGL).parent("sketch-container");
 
     // Matter.js setup
     engine = Engine.create();
     world = engine.world;
 
     // Ground and walls
-    ground = Bodies.rectangle(300, 390, 600, 20, { isStatic: true });
+    ground = Bodies.rectangle(300, 490, 600, 20, { isStatic: true });
     World.add(world, ground);
-    leftWall = Bodies.rectangle(0, 200, 20, 400, { isStatic: true });
-    rightWall = Bodies.rectangle(300, 200, 20, 400, { isStatic: true });
+    leftWall = Bodies.rectangle(0, 200, 20, 500, { isStatic: true });
+    rightWall = Bodies.rectangle(300, 200, 20, 500, { isStatic: true });
     World.add(world, leftWall);
     World.add(world, rightWall);
 
@@ -232,12 +247,18 @@
   const baseSelect = document.getElementById("baseSelect");
   const milkCheckbox = document.getElementById("milkCheckbox");
   const bobaCheckbox = document.getElementById("bobaCheckbox");
+  const puddingCheckbox = document.getElementById("puddingCheckbox");
+  const grassCheckbox = document.getElementById("grassCheckbox");
+  const konjacCheckbox = document.getElementById("konjacCheckbox");
   const greentea = document.getElementById("greentea");
   const blacktea = document.getElementById("blacktea");
   const milk = document.getElementById("milk");
   const milktea = document.getElementById("milktea");
   const matchalatte = document.getElementById("matchalatte");
   const boba = document.getElementById("bobo");
+  const pudding = document.getElementById("pudding");
+  const grassJelly = document.getElementById("grass-jelly");
+  const konjac = document.getElementById("konjac");
 
   // Function to update opacity based on selection
   function updateDrinksOpacity() {
@@ -281,13 +302,33 @@
     } else {
       boba.style.opacity = 0; // Set opacity to 0 (invisible)
     }
+
+    if (puddingCheckbox.checked) {
+      pudding.style.opacity = 1; // Set opacity to 1 (visible)
+    } else {
+      pudding.style.opacity = 0; // Set opacity to 0 (invisible)
+    }
+
+    if (grassCheckbox.checked) {
+      grassJelly.style.opacity = 1; // Set opacity to 1 (visible)
+    } else {
+      grassJelly.style.opacity = 0; // Set opacity to 0 (invisible)
+    }
+
+    if (konjacCheckbox.checked) {
+      konjac.style.opacity = 1; // Set opacity to 1 (visible)
+    } else {
+      konjac.style.opacity = 0; // Set opacity to 0 (invisible)
+    }
   }
 
   // Add event listeners for changes to the select and checkbox
   baseSelect.addEventListener("change", updateDrinksOpacity);
   milkCheckbox.addEventListener("change", updateDrinksOpacity);
   bobaCheckbox.addEventListener("change", updateDrinksOpacity);
-
+  puddingCheckbox.addEventListener("change", updateDrinksOpacity);
+  grassCheckbox.addEventListener("change", updateDrinksOpacity);
+  konjacCheckbox.addEventListener("change", updateDrinksOpacity);
   // Initialize opacity on page load based on current values
   updateDrinksOpacity();
 </script>
