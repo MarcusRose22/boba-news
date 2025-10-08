@@ -1,47 +1,60 @@
-<div class="game-section" id="gameSection">
-  <!-- Container for the p5.js sketch -->
-  <div id="container">
-    <div id="menu-container">
-      <p>Base:</p>
-      <select id="baseSelect">
-        <option value="">Please select a base</option>
-        <option>Green Tea</option>
-        <option>Black Tea</option>
-      </select>
+<div class="game-wrapper">
+  <h5>Customize Your Boba!</h5>
+  <div class="game-section" id="gameSection">
+    <!-- Container for the p5.js sketch -->
 
-      <p>Milk:</p>
-      <input type="checkbox" id="milkCheckbox" /> Add Milk
+    <div id="container">
+      <div id="menu-container">
+        <p>Base:</p>
+        <select id="baseSelect">
+          <option value="">Please select a base</option>
+          <option>Green Tea</option>
+          <option>Black Tea</option>
+        </select>
 
-      <p>Boba:</p>
-      <input type="checkbox" id="bobaCheckbox" /> Add Boba
+        <p>Milk:</p>
+        <input type="checkbox" id="milkCheckbox" /> Add Milk
 
-      <p>Sugar:</p>
-      <select id="sugarSelect">
-        <option>0%</option>
-        <option>30%</option>
-        <option>50%</option>
-        <option>70%</option>
-        <option>100%</option>
-      </select>
+        <p>Boba:</p>
+        <input type="checkbox" id="bobaCheckbox" /> Add Boba
+
+        <p>Sugar:</p>
+        <select id="sugarSelect">
+          <option>0%</option>
+          <option>30%</option>
+          <option>50%</option>
+          <option>70%</option>
+          <option>100%</option>
+        </select>
+      </div>
+
+      <div class="make-drinks">
+        <img style="opacity: 1;" src="img/make-drinks/teacup.png" />
+        <img id="greentea" src="img/make-drinks/greentea.png" />
+        <img id="blacktea" src="img/make-drinks/blacktea.png" />
+        <img id="milk" src="img/make-drinks/milk.png" />
+        <img id="milktea" src="img/make-drinks/milktea.png" />
+        <img id="matchalatte" src="img/make-drinks/matchalatte.png" />
+        <img id="bobo" src="img/make-drinks/bobo.png" />
+      </div>
+      <div>
+        <div id="sketch-container"></div>
+        <div id="sugarDisplay">0</div>
+      </div>
+
+      <!-- This is where the p5.js canvas will be rendered -->
     </div>
-
-    <div class="make-drinks">
-      <img style="opacity: 1;" src="img/make-drinks/teacup.png" />
-      <img id="greentea" src="img/make-drinks/greentea.png" />
-      <img id="blacktea" src="img/make-drinks/blacktea.png" />
-      <img id="milk" src="img/make-drinks/milk.png" />
-      <img id="milktea" src="img/make-drinks/milktea.png" />
-      <img id="matchalatte" src="img/make-drinks/matchalatte.png" />
-      <img id="bobo" src="img/make-drinks/bobo.png" />
-    </div>
-    <div>
-      <div id="sketch-container"></div>
-      <div id="sugarDisplay">0</div>
-    </div>
-
-    <!-- This is where the p5.js canvas will be rendered -->
   </div>
 </div>
+
+<style>
+  h5 {
+    font-size: 5rem;
+    margin: 0;
+    position: absolute;
+    margin-top: 1%;
+  }
+</style>
 
 <!-- Include p5.js library -->
 <script is:inline src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"
@@ -205,6 +218,11 @@
     // Display the total sugar cubes
     document.getElementById("sugarDisplay").innerHTML =
       `Total sugar cubes: ${totalSugar}`;
+    if (totalSugar > 10) {
+      document.getElementById("sugarDisplay").style.color = "red";
+    } else {
+      document.getElementById("sugarDisplay").style.color = "black";
+    }
   }
 </script>
 

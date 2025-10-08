@@ -1,17 +1,22 @@
 .article {
   width: 100%;
+  margin-top: 5%;
+  padding-bottom: 5%;
 }
 
 .article section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-flow: column;
-  gap: 2%;
-  margin-top: 5%;
+  gap: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  box-sizing: border-box;
 }
 
-img {
+.article img {
   width: 100%;
+  aspect-ratio: 3/4;
 }
 
 @media (max-width: 768px) {

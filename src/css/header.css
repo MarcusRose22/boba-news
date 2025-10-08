@@ -1,25 +1,43 @@
 header {
   position: fixed;
-  left: 2%;
+  left: 1%;
   top: 35%;
   transition: all 0.5s;
   opacity: 0;
+  font-family: "Geist", sans-serif;
   width: 20ch;
 }
 
 nav p {
+  margin: 0.2em;
+  display: inline-block;
   font-size: 1rem;
   transition: all 0.5s;
+  padding: 0.2em;
+  font-weight: bold;
+
+  color: #333333a6;
 }
 
 nav p.now {
   transform: translateX(10px);
-  font-weight: bold;
-  transition: all 0.5s;
+  background-color: #8a624a;
+  color: #f8f7ef;
+  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 nav p:hover {
   cursor: pointer;
-  transform: translateX(10px);
+  /* transform: translateX(10px); */
+  color: black;
   transition: all 0.5s;
+}
+
+nav p.now:hover {
+  transform: translateX(10px);
+  background-color: #8a624a;
+  color: #f8f7ef;
+  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease;
 }

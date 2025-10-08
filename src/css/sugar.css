@@ -17,6 +17,9 @@
 }
 
 .sugar-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
   font-size: 5em;
   font-weight: 900;
   color: lightgray;
@@ -30,13 +33,13 @@
 
 .sugar-amount-text {
   position: absolute;
-  top: 0;
+  top: 300px;
+  left: 200px;
   font-size: 3em;
   font-weight: 900;
   color: gray;
   opacity: 0;
   transition: opacity 0.3s ease;
-  display: none;
 }
 
 .sugar-amount-text.visible {
