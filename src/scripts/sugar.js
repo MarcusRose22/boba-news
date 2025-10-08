@@ -52,7 +52,12 @@ window.addEventListener("scroll", function () {
   cubeImages.forEach((cubeImg) => cubeImg.classList.remove("visible")); // 隱藏所有 cube-images
   sugarAmount.forEach((txt) => txt.classList.remove("visible"));
   // console.log(cubeIndex);
-  if (cubeIndex >= 0 && visibleIndex % 10 === 9 && visibleIndex != 0) {
+  if (
+    cubeIndex >= 0 &&
+    visibleIndex % 10 === 9 &&
+    visibleIndex != 0 &&
+    cubeIndex < 8
+  ) {
     cubeImages[cubeIndex].classList.add("visible");
     sugarAmount[cubeIndex].classList.add("visible");
   }
