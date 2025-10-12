@@ -78,8 +78,8 @@
 
 .cube img {
   position: absolute;
-  top: 140px;
-  left: 800px;
+
+  left: 680px;
   width: 47em;
   opacity: 0;
   transition: opacity 0s ease; /* Adjust transition time for smoothness */
